@@ -2,27 +2,22 @@
 @import url('https://fonts.googleapis.com/css?family=Rubik|Fira+Mono');
 
 // Define some base colors
-// $blue: #243946;
-$sand: #CF9E61;
-$celeste: #586e70;
-$orange: #C64632;
 
-
-$primary: $sand;
-$info: $celeste;
-$warning: $orange;
+$primary: {{ .Param "colors.primary" | default "#CF9E61" }};
+$info: {{ .Param "colors.info" | default "#586e70" }};
+$warning: {{ .Param "colors.warning" | default "#C64632" }};
 
 // Customize Bulma default styles
-$link: $orange;
-$code: darken($sand, 40%);
+$link: $warning;
+$code: darken($primary, 40%);
 $navbar-height: 3rem;
 $navbar-item-img-max-height: 2rem;
-$footer-background-color: desaturate($sand, 10%);
+$footer-background-color: desaturate($primary, 10%);
 $family-primary: "Rubik", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 $family-code: "Fira Mono", monospace;
 
-@import "./assets/vendor/bulma/bulma";
-@import "./assets/vendor/bulma-carousel/dist/css/bulma-carousel";
+@import "vendor/bulma/bulma";
+@import "vendor/bulma-carousel/dist/css/bulma-carousel";
 
 h1, h2, h3, h4, h5, h6 {
 	font-family: $family-code;
@@ -33,7 +28,7 @@ pre {
 }
 
 ::selection {
-	background-color: lighten(desaturate($sand, 20%), 20%);
+	background-color: lighten(desaturate($primary, 20%), 20%);
 	color: $grey-dark;
 }
 
