@@ -1,0 +1,12 @@
+name = "DivHub Website Theme"
+license = "MIT"
+licenselink = "https://github.com/DivHub/divhub-hugo-theme/blob/master/LICENSE"
+description = "Base Hugo Theme to use on different DivHub community projects"
+homepage = "https://github.com/DivHub/divhub-hugo-theme/"
+tags = []
+features = []
+min_version = "0.41"
+
+[author]
+  name = "Molotec"
+  homepage = "https://molotec.com"
