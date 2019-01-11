@@ -14,8 +14,8 @@
         </div>
 
         <div class="hero-body has-text-centered" style="z-index: 0; background-color: rgba(0,0,0,0.6);">
-          <p class="title is-2">BennuGD</p>
-          <p class="subtitle is-4">A multi-platform div-like videogame programming language</p>
+          <p class="title is-2">{{ .Site.Title }}</p>
+          <p class="subtitle is-4">{{ .Site.Params.tagline }}</p>
           <p>
               <a href="{{ "/downloads" | relURL }}" class="button is-medium is-primary is-inverted is-outlined">Download</a>
               <a href="{{ "/docs" | relURL }}" class="button is-medium is-primary is-inverted is-outlined">Documentation</a>

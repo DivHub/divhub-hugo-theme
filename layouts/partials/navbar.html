@@ -3,7 +3,7 @@
 
         <div class="navbar-brand">
             <a href="{{ .Site.Home.Permalink }}" class="navbar-item">
-                <img src="{{ "img/logo.png" | relURL }}" alt="BennuGD Logo">
+                <img src="{{ .Site.Params.logo_small | relURL }}" alt="{{ .Site.Title }} Logo">
                 {{ .Site.Title }}
             </a>
             <span class="navbar-burger burger" data-target="main-navbar">
