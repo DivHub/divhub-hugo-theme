@@ -1,18 +1,49 @@
-
 @import url('https://fonts.googleapis.com/css?family=Rubik|Fira+Mono');
 
 // Define some base colors
+$custom_primary_color: {{ .Param "colors.primary" | default "#963" }};
+$custom_text_color: {{ .Param "colors.text" | default "#333" }};
+$custom_link_color: {{ .Param "colors.link" | default "#369" }};
+$custom_background_color: {{ .Param "colors.bg" | default "#999" }};
+$custom_footer_color: {{ .Param "colors.footer" | default "#669" }};
 
-$primary: {{ .Param "colors.primary" | default "#CF9E61" }};
-$info: {{ .Param "colors.info" | default "#586e70" }};
-$warning: {{ .Param "colors.warning" | default "#C64632" }};
+// Customize Bulma Colors
 
-// Customize Bulma default styles
-$link: $warning;
-$code: darken($primary, 40%);
+{{ if .Param "colors.dark_mode" }}
+	$primary: $custom_primary_color;
+	$link: $custom_link_color;
+	$link-hover: lighten($custom_link_color, 10%);
+	$text: $custom_text_color;
+	$text-light: lighten($custom_text_color, 10%);
+	$text-strong: lighten($custom_text_color, 25%);
+	$title-color: lighten($custom_primary_color, 30%);
+	$subtitle-color: lighten($custom_primary_color, 15%);
+	$background: $custom_background_color;
+	$body-background-color: $custom_background_color;
+	$footer-background-color: $custom_footer_color;
+	$code: lighten($primary, 40%);
+	$code-background: desaturate(lighten($custom_background_color, 5%), 5%);
+	$pre-background: desaturate(lighten($custom_background_color, 5%), 5%);
+{{ else }}
+	$primary: $custom_primary_color;
+	$link: $custom_link_color;
+	$link-hover: darken($custom_link_color, 10%);
+	$text: $custom_text_color;
+	$text-light: darken($custom_text_color, 10%);
+	$text-strong: lighten($custom_text_color, 5%);
+	$title-color: darken($custom_primary_color, 30%);
+	$subtitle-color: darken($custom_primary_color, 15%);
+	$background: $custom_background_color;
+	$body-background-color: $custom_background_color;
+	$footer-background-color: $custom_footer_color;
+	$code: darken($primary, 30%);
+	$code-background: desaturate(darken($custom_background_color, 5%), 60%);
+	$pre-background: desaturate(darken($custom_background_color, 5%), 60%);
+{{ end }}
+
+// Customize Bulma Properties
 $navbar-height: 3rem;
 $navbar-item-img-max-height: 2rem;
-$footer-background-color: desaturate($primary, 10%);
 $family-primary: "Rubik", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 $family-code: "Fira Mono", monospace;
 
