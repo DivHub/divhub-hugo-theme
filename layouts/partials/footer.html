@@ -1,13 +1,18 @@
 <footer class="footer">
     <div class="container">
-        <div class="content has-text-centered has-text-white">
+        <div class="content has-text-centered">
 
-            <img src="{{ .Site.Params.logo | relURL }}" alt="{{ .Site.Title }} Logo" style="max-width: 250px">
-            <p>Consider a small donation to help keep the project running!</p>
-            <a href="$" target="_blank" class="button is-warning is-outlined">
-                <span class="icon"><i class="fab fa-paypal"></i></span>
-                <span>Donate</span>
-            </a>
+            {{ if .Site.Params.logo -}}
+                <img src="{{ .Site.Params.logo | relURL }}" alt="{{ .Site.Title }} Logo" style="max-width: 250px">
+            {{- end }}
+
+            {{ if .Site.Params.donations -}}
+                <p>Consider a small donation to help keep the project running!</p>
+                <a href="{{ .Site.Params.donations }}" target="_blank" class="button is-info is-outlined">
+                    <span class="icon"><i class="fab fa-paypal"></i></span>
+                    <span>Donate</span>
+                </a>
+            {{- end }}
 
             <p class="margin-6" style="margin-top: 4rem;">
                 Made with ❤️ |

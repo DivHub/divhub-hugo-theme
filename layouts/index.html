@@ -1,36 +1,39 @@
 {{ define "main" }}
 
-    <div class="hero is-large is-primary has-carousel">
+    {{ if .Params.carousel.show }}
+        <div class="hero is-large is-primary has-carousel">
 
-        <div class="hero-carousel carousel-animated carousel-animate-fade" data-autoplay="true">
-            <div class='carousel-container'>
-                {{ range $index, $value := .Params.carousel }}
-                  <div class='carousel-item has-background {{ if eq $index 0 }}is-active{{end}}'>
-                    <img class="is-background" src="{{ $value | relURL }}" alt="" />
-                    {{ . }}
-                  </div>
-                {{ end}}
+            <div class="hero-carousel carousel-animated carousel-animate-fade" data-autoplay="true">
+                <div class='carousel-container'>
+                    {{ range $index, $value := .Params.carousel.images }}
+                      <div class='carousel-item has-background {{ if eq $index 0 }}is-active{{end}}'>
+                        <img class="is-background" src="{{ $value | relURL }}" alt="" />
+                        {{ . }}
+                      </div>
+                    {{ end}}
+                </div>
+            </div>
+
+            <div class="hero-body has-text-centered" style="z-index: 0; background-color: rgba(0,0,0,0.6);">
+              <p class="title is-2">{{ .Site.Title }}</p>
+              <p class="subtitle is-4">{{ .Site.Params.tagline }}</p>
+              <p>
+                  <a href="{{ "/downloads" | relURL }}" class="button is-medium is-primary is-inverted is-outlined">Download</a>
+                  <a href="{{ "/docs" | relURL }}" class="button is-medium is-primary is-inverted is-outlined">Documentation</a>
+              </p>
             </div>
         </div>
+    {{ end }}
 
-        <div class="hero-body has-text-centered" style="z-index: 0; background-color: rgba(0,0,0,0.6);">
-          <p class="title is-2">{{ .Site.Title }}</p>
-          <p class="subtitle is-4">{{ .Site.Params.tagline }}</p>
-          <p>
-              <a href="{{ "/downloads" | relURL }}" class="button is-medium is-primary is-inverted is-outlined">Download</a>
-              <a href="{{ "/docs" | relURL }}" class="button is-medium is-primary is-inverted is-outlined">Documentation</a>
-          </p>
-        </div>
-    </div>
-
-    <div class="section">
+    <div class="section is-medium">
         <div class="container">
-            <div class="content">
+            <div class="content is-medium">
                 {{ .Content }}
             </div>
         </div>
     </div>
 
+    {{ if .Params.blog.show }}
     <div class="section">
         <div class="container">
             <h2 class="title">Latest News</h2>
@@ -46,8 +49,10 @@
             </p>
         </div>
     </div>
+    {{ end }}
 
-    <div class="hero is-medium is-dark">
+    {{ if .Params.projects.show }}
+    <div class="hero is-medium is-primary">
         <div class="hero-body has-text-centered">
             <h2 class="title">Projects Showcase</h2>
             <div class="columns is-multiline is-centered">
@@ -64,6 +69,7 @@
             </div>
         </div>
     </div>
+    {{ end }}
 
 {{ end }}
 

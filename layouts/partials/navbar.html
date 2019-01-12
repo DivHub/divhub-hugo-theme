@@ -3,7 +3,9 @@
 
         <div class="navbar-brand">
             <a href="{{ .Site.Home.Permalink }}" class="navbar-item">
-                <img src="{{ .Site.Params.logo_small | relURL }}" alt="{{ .Site.Title }} Logo">
+                {{ if .Site.Params.logo_small -}}
+                    <img src="{{ .Site.Params.logo_small | relURL }}" alt="{{ .Site.Title }} Logo">
+                {{- end }}
                 {{ .Site.Title }}
             </a>
             <span class="navbar-burger burger" data-target="main-navbar">
