@@ -1,25 +1,40 @@
 <footer class="footer">
-    <div class="container">
-        <div class="content has-text-centered">
+    <div class="container has-text-centered">
 
+        <div class="footer-section footer-logo-section margin-2">
             {{ if .Site.Params.logo -}}
-                <img src="{{ .Site.Params.logo | relURL }}" alt="{{ .Site.Title }} Logo" style="max-width: 250px">
+                <img src="{{ .Site.Params.logo | relURL }}" alt="{{ .Site.Title }} Logo" style="max-width: 100px">
             {{- end }}
+            {{ if .Site.Params.tagline -}}
+                <p>
+                    {{ .Site.Title }} | {{ .Site.Params.tagline }}
+                </p>
+            {{- end }}
+            {{ if .Site.Params.copyright -}}
+                <p>
+                    {{ .Site.Params.copyright }}
+                </p>
+            {{- end }}
+        </div>
 
-            {{ if .Site.Params.donations -}}
+        {{ if .Site.Params.donations -}}
+            <div class="footer-section footer-donations-section">
                 <p>Consider a small donation to help keep the project running!</p>
                 <a href="{{ .Site.Params.donations }}" target="_blank" class="button is-info is-outlined">
                     <span class="icon"><i class="fab fa-paypal"></i></span>
                     <span>Donate</span>
                 </a>
-            {{- end }}
+            </div>
+        {{- end }}
 
-            <p class="margin-6" style="margin-top: 4rem;">
+        <div class="footer-section footer-copyright-section">
+            <p>
                 Made with ❤️ |
-                Design by <a href="https://molotec.com" target="_blank">Molotec</a> |
-                <a href="{{ .Site.Params.repository }}edit/master/content/{{ .File.Path }}">Edit this page on Github</a>
+                Design by <a href="https://molotec.com" target="_blank">Molotec</a>
+                {{ if .Site.Params.repository -}}
+                    | <a href="{{ .Site.Params.repository }}edit/master/content/{{ .File.Path }}">Edit this page on Github</a>
+                {{- end }}
             </p>
-
         </div>
     </div>
 </footer>
