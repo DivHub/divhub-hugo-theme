@@ -10,19 +10,40 @@
         {{ .Content }}
     </div>
 
+
     {{ if eq .Layout "module" }}
-        <div class="panel">
-            <p class="panel-heading">Module Functions</p>
-            {{ range where .Site.RegularPages ".Params.module" .Title }}
-                <a class="panel-block" href="{{ .Permalink }}">{{ .Title }}</a>
-            {{ end}}
-        </div>
+
+        <!-- Obtain some related pages -->
+        {{ $mine := where .Site.RegularPages ".Params.modules" "intersect" (slice .Title) }}
+        {{ $myFunctions := where .Site.RegularPages ".Layout" "function" | intersect $mine }}
+        {{ $myConstants := where .Site.RegularPages ".Layout" "constant" | intersect $mine }}
+
+        <!-- display related content of the module -->
+        {{ with $myFunctions }}
+            <div class="panel">
+                <p class="panel-heading">Functions</p>
+                {{ range . }}
+                    <a class="panel-block" href="{{ .Permalink }}">{{ .Title }}</a>
+                {{ end}}
+            </div>
+        {{ end}}
+
+        {{ with $myConstants }}
+            <div class="panel">
+                <p class="panel-heading">Constants</p>
+                {{ range . }}
+                    <a class="panel-block" href="{{ .Permalink }}">{{ .Title }}</a>
+                {{ end}}
+            </div>
+        {{ end}}
+
     {{ end }}
 
-    {{ if eq .Layout "function" }}
+    {{ if .Params.modules }}
+    <!-- Display modules if it has it defined on its frontmatter -->
         <div class="panel">
             <p class="panel-heading">Module</p>
-            {{ range where .Site.RegularPages ".Title" .Params.module }}
+            {{ range where .Site.RegularPages ".Title" "in" .Params.modules }}
                 <a class="panel-block" href="{{ .Permalink }}">{{ .Title }}</a>
             {{ end}}
         </div>
