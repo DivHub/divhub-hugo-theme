@@ -10,7 +10,7 @@
 
     {{with .Pages }}
     <div class="panel">
-        <p class="panel-heading">Section Content</p>
+        <p class="panel-heading">Pages in this Section</p>
         {{ range . }}
             <a class="panel-block" href="{{ .Permalink }}">{{ .Title }}</a>
         {{ end}}
