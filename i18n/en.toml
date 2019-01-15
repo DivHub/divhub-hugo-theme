@@ -1,0 +1,21 @@
+[index_blog_title]
+other = "Latest News"
+
+[index_blog_view]
+other = "view all news"
+
+[index_projects_title]
+other = "Projects Showcase"
+
+[index_projects_view]
+other = "view all projects"
+
+[footer_love]
+other = "Made with ❤️"
+
+[footer_design]
+other = "Design by [Tehuel](https://tehuel.blog)"
+
+[footer_edit]
+other = "Edit this page on Github"
+

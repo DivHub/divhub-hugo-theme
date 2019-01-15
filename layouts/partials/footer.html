@@ -29,10 +29,10 @@
 
         <div class="footer-section footer-copyright-section">
             <p>
-                Made with ❤️ |
-                Design by <a href="https://molotec.com" target="_blank">Molotec</a>
+                {{ i18n "footer_love" }} |
+                {{ i18n "footer_design" | markdownify }}
                 {{ if .Site.Params.repository -}}
-                    | <a href="{{ .Site.Params.repository }}edit/master/content/{{ .File.Path }}">Edit this page on Github</a>
+                    | <a href="{{ .Site.Params.repository }}edit/master/content/{{ .File.Path }}">{{ i18n "footer_edit" }}</a>
                 {{- end }}
             </p>
         </div>

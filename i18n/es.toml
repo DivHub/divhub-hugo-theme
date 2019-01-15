@@ -1,0 +1,20 @@
+[index_blog_title]
+other = "Últimas Novedades"
+
+[index_blog_view]
+other = "ver más novedades"
+
+[index_projects_title]
+other = "Galería de Proyectos"
+
+[index_projects_view]
+other = "ver todos"
+
+[footer_love]
+other = "Hecho con ❤️"
+
+[footer_design]
+other = "Diseño de [Tehuel](https://tehuel.blog)"
+
+[footer_edit]
+other = "Editar esta página"

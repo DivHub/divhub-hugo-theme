@@ -34,41 +34,41 @@
     </div>
 
     {{ if .Params.blog.show }}
-    <div class="section">
-        <div class="container">
-            <h2 class="title">Latest News</h2>
-            <div class="columns is-multiline is-centered">
-                {{ range first 3 (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) }}
-                    <div class="column is-one-third">
-                        {{ .Render "li" }}
-                    </div>
-                {{ end}}
-            </div>
-            <p class="has-text-right">
-                <a href="{{ "/blog" | relURL }}" class="button is-info">view all &raquo;</a>
-            </p>
-        </div>
-    </div>
-    {{ end }}
-
-    {{ if .Params.projects.show }}
-    <div class="hero is-medium is-primary">
-        <div class="hero-body has-text-centered">
-            <h2 class="title">Projects Showcase</h2>
-            <div class="columns is-multiline is-centered">
-                {{ range first 2 (where .Site.RegularPages "Type" "in" "projects") }}
-                    <div class="column is-half">
-                        {{ .Render "li" }}
-                    </div>
-                {{ end}}
-            </div>
+        <div class="section">
             <div class="container">
+                <h2 class="title">{{ i18n "index_blog_title" }}</h2>
+                <div class="columns is-multiline is-centered">
+                    {{ range first 3 (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) }}
+                        <div class="column is-one-third">
+                            {{ .Render "li" }}
+                        </div>
+                    {{ end}}
+                </div>
                 <p class="has-text-right">
-                    <a href="{{ "/projects" | relURL }}" class="button is-info">view all projects &raquo;</a>
+                    <a href="{{ "/blog" | relURL }}" class="button is-info">{{ i18n "index_blog_view" }} &raquo;</a>
                 </p>
             </div>
         </div>
-    </div>
+    {{ end }}
+
+    {{ if .Params.projects.show }}
+        <div class="hero is-medium is-primary">
+            <div class="hero-body has-text-centered">
+                <h2 class="title">{{ i18n "index_projects_title" }}</h2>
+                <div class="columns is-multiline is-centered">
+                    {{ range first 2 (where .Site.RegularPages "Type" "in" "projects") }}
+                        <div class="column is-half">
+                            {{ .Render "li" }}
+                        </div>
+                    {{ end}}
+                </div>
+                <div class="container">
+                    <p class="has-text-right">
+                        <a href="{{ "/projects" | relURL }}" class="button is-info">{{ i18n "index_projects_view" }} &raquo;</a>
+                    </p>
+                </div>
+            </div>
+        </div>
     {{ end }}
 
 {{ end }}
